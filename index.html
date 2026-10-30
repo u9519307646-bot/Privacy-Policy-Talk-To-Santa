@@ -16,24 +16,131 @@
 </head>
 <body>
 
-    <main id="content">Loading Privacy Policy...</main>
+    <main id="content"></main>
 
     <script>
-        fetch("./Data.MD")
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Could not load Data.MD");
-                }
-                return response.text();
-            })
-            .then(markdown => {
-                document.getElementById("content").innerHTML =
-                    marked.parse(markdown);
-            })
-            .catch(error => {
-                document.getElementById("content").textContent =
-                    "Failed to load Privacy Policy: " + error.message;
-            });
+        const markdown = `
+# Privacy Policy – Talk to Santa
+
+**Last updated: October 30, 2026**
+
+**Developer:** KrzaczeQ Apps  
+**Contact:** kupczakgaming@gmail.com  
+**Platform:** Android
+
+## 1. Introduction
+
+This Privacy Policy explains how KrzaczeQ Apps handles information when you use Talk to Santa.
+
+## 2. Information We Collect
+
+The application uses the following information:
+
+- User's name.
+- User's date of birth.
+- Messages sent during conversations with the AI.
+
+The user's name and date of birth are stored locally on the Android device.
+
+However, the name and date of birth are also included in prompts sent to OpenRouter to personalize AI responses.
+
+## 3. Artificial Intelligence – OpenRouter
+
+Talk to Santa uses the OpenRouter API to communicate with an AI model.
+
+Information sent to OpenRouter may include:
+
+- User's name.
+- User's date of birth.
+- User's messages.
+
+OpenRouter forwards requests to the selected AI model provider. These external providers may process information according to their own privacy policies.
+
+More information: https://openrouter.ai/privacy/
+
+## 4. Text-to-Speech – Fish Audio
+
+Talk to Santa uses Fish Audio to generate spoken versions of AI responses.
+
+Only the text of the AI-generated response is sent to Fish Audio.
+
+The application does not intentionally send the user's date of birth or microphone recordings to Fish Audio.
+
+Fish Audio: https://fish.audio/
+
+## 5. NORAD Santa Tracker
+
+The application includes an embedded NORAD Santa Tracker.
+
+Talk to Santa does not intentionally send the user's name, date of birth, or AI conversations to NORAD.
+
+However, loading the embedded website may allow NORAD to receive standard technical information, such as the user's IP address.
+
+NORAD website: https://www.noradsanta.org/
+
+## 6. Local Data Storage
+
+The user's name and date of birth are stored locally on the device.
+
+The application provides a **Log Out** button that clears locally stored user information.
+
+Logging out does not automatically delete information already transmitted to external services.
+
+## 7. Children's Privacy
+
+Talk to Santa is designed for children, including users under the age of 13.
+
+Parents and legal guardians should supervise children's use of the application.
+
+Users should not share sensitive personal information during AI conversations.
+
+## 8. Data Sharing
+
+Information is shared with external services as follows:
+
+- **OpenRouter:** User profile information and conversation messages.
+- **AI model providers:** Information forwarded through OpenRouter.
+- **Fish Audio:** AI-generated response text for speech generation.
+- **NORAD:** Technical information associated with loading its embedded tracker.
+
+## 9. Data Retention
+
+Locally stored profile information remains on the device until the user logs out or clears the application's data.
+
+Information sent to external providers is subject to their respective retention policies.
+
+## 10. Security
+
+We take reasonable measures to protect information handled by the application.
+
+However, no electronic transmission or storage method can be guaranteed to be completely secure.
+
+## 11. User Rights
+
+Depending on applicable law, users or their parents and legal guardians may have rights to:
+
+- Request access to personal information.
+- Request correction of personal information.
+- Request deletion of personal information.
+- Object to certain processing activities.
+
+For privacy-related requests, contact us by email.
+
+## 12. Changes to This Policy
+
+We may update this Privacy Policy when application features or data-processing practices change.
+
+The latest version will always be published at the official Privacy Policy address.
+
+## 13. Contact
+
+**KrzaczeQ Apps**
+
+Email: kupczakgaming@gmail.com
+`;
+
+        document.getElementById("content").innerHTML =
+            marked.parse(markdown);
     </script>
 
 </body>
